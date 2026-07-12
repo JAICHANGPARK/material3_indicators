@@ -4,6 +4,12 @@
 
 ## 主な機能
 
+<p align="center">
+  <img src="assets/20260712-njyi.png" width="31%" alt="Expressive Loading Indicator" />
+  <img src="assets/20260712-njzb.png" width="31%" alt="Wavy Linear Progress Indicator" />
+  <img src="assets/20260712-njzn.png" width="31%" alt="Wavy Circular Progress Indicator" />
+</p>
+
 | コンポーネント | スタイル | 主な特徴 |
 | :--- | :--- | :--- |
 | **`ExpressiveLoadingIndicator`** | 形状モーフィングスピナー | 角丸多角形（五角形、太陽の形、ソフトバースト、クッキーの形、カプセル型）の間をスプリング物理演算に基づいて滑らかにモーフィングしながら回転し続けます。枠線/塗りつぶし、および背景カード（Contained）の有無をオプションで設定できます。 |

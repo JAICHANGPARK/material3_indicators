@@ -4,6 +4,12 @@
 
 ## 주요 기능
 
+<p align="center">
+  <img src="assets/20260712-njyi.png" width="31%" alt="Expressive Loading Indicator" />
+  <img src="assets/20260712-njzb.png" width="31%" alt="Wavy Linear Progress Indicator" />
+  <img src="assets/20260712-njzn.png" width="31%" alt="Wavy Circular Progress Indicator" />
+</p>
+
 | 컴포넌트 | 스타일 | 주요 특징 |
 | :--- | :--- | :--- |
 | **`ExpressiveLoadingIndicator`** | 도형 모핑 스피너 | 둥근 다각형(오각형, 태양 모양, 소프트 버스트, 쿠키 모양, 알약 모양) 간을 스프링 물리 기반으로 부드럽게 모핑하며 회전합니다. 테두리선/채우기, 컨테이너 카드 내장(Contained) 여부를 옵션으로 조절할 수 있습니다. |

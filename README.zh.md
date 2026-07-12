@@ -4,6 +4,12 @@
 
 ## 功能特性
 
+<p align="center">
+  <img src="assets/20260712-njyi.png" width="31%" alt="Expressive Loading Indicator" />
+  <img src="assets/20260712-njzb.png" width="31%" alt="Wavy Linear Progress Indicator" />
+  <img src="assets/20260712-njzn.png" width="31%" alt="Wavy Circular Progress Indicator" />
+</p>
+
 | 组件 | 样式 | 主要特点 |
 | :--- | :--- | :--- |
 | **`ExpressiveLoadingIndicator`** | 形状渐变加载器 | 采用基于弹簧物理的平滑渐变算法，在多种圆角多边形（五边形、太阳形、柔和星形、曲奇饼形、药丸形）之间不断切换并持续旋转。支持描边/填充、以及带背景卡片（Contained）等配置选项。 |

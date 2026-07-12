@@ -4,6 +4,12 @@ A Flutter package implementing the latest **Material 3 Expressive** loading and 
 
 ## Features
 
+<p align="center">
+  <img src="assets/20260712-njyi.png" width="31%" alt="Expressive Loading Indicator" />
+  <img src="assets/20260712-njzb.png" width="31%" alt="Wavy Linear Progress Indicator" />
+  <img src="assets/20260712-njzn.png" width="31%" alt="Wavy Circular Progress Indicator" />
+</p>
+
 | Component | Style | Key Characteristics |
 | :--- | :--- | :--- |
 | **`ExpressiveLoadingIndicator`** | Shape-Morphing Spinner | Continuous spring-driven morphing between rounded polygons (Pentagon, Sunny, Soft Burst, Cookie, Pill). Outlined/Filled, Contained/Uncontained. |
