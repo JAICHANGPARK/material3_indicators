@@ -24,8 +24,7 @@
 
 ```yaml
 dependencies:
-  material3_indicators:
-    path: path/to/local/material3_indicators # 发布到 pub.dev 后可改为版本号
+  material3_indicators: ^2026.7.12+1
 ```
 
 在您的 Dart 代码中导入此插件包：

@@ -24,8 +24,7 @@
 
 ```yaml
 dependencies:
-  material3_indicators:
-    path: path/to/local/material3_indicators # 또는 pub.dev 출시 후 버전 지정
+  material3_indicators: ^2026.7.12+1
 ```
 
 Dart 파일에서 패키지를 임포트합니다:

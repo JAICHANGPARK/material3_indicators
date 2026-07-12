@@ -24,8 +24,7 @@ Add `material3_indicators` to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  material3_indicators:
-    path: path/to/local/material3_indicators # Or standard pub version once published
+  material3_indicators: ^2026.7.12+1
 ```
 
 Import the package in your Dart code:

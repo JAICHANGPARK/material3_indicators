@@ -24,8 +24,7 @@
 
 ```yaml
 dependencies:
-  material3_indicators:
-    path: path/to/local/material3_indicators # pub.dev公開後はバージョン番号を指定可能
+  material3_indicators: ^2026.7.12+1
 ```
 
 Dart ファイルでパッケージをインポートします：
