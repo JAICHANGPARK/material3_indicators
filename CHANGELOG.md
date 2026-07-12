@@ -1,4 +1,4 @@
-## 2026.7.12
+## 2026.7.12+1
 
 * Initial release of `material3_indicators`.
 * Added `ExpressiveLoadingIndicator` implementing Material 3 shape-morphing loaders with support for both contained and uncontained modes.
