@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-/// Predefined shape generators aligned with the Material 3 Expressive spec.
+/// Predefined shape generators aligned with the Material 3 design spec.
 /// These shapes leverage [StarBorder] which provides native interpolation (morphing)
 /// via `ShapeBorder.lerp`.
-class ExpressiveShapes {
+class M3Shapes {
   /// A standard M3 Pentagon shape with slightly rounded corners.
   static ShapeBorder pentagon({double rounding = 0.3}) {
     return StarBorder.polygon(
@@ -79,7 +79,7 @@ class ExpressiveShapes {
     );
   }
 
-  /// A list of the default 5 shapes in the cycle of the M3 Expressive loading indicator.
+  /// A list of the default 5 shapes in the cycle of the M3 loading indicator.
   static List<ShapeBorder> get defaultCycle => [
         pentagon(),
         sunny(),

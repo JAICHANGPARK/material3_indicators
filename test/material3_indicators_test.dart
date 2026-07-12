@@ -3,34 +3,34 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:material3_indicators/material3_indicators.dart';
 
 void main() {
-  group('ExpressiveShapes Tests', () {
+  group('M3Shapes Tests', () {
     test('Default cycle contains shapes', () {
-      final shapes = ExpressiveShapes.defaultCycle;
+      final shapes = M3Shapes.defaultCycle;
       expect(shapes, isNotEmpty);
       expect(shapes.length, equals(5));
     });
 
     test('Helper shapes return valid ShapeBorder objects', () {
-      expect(ExpressiveShapes.pentagon(), isA<ShapeBorder>());
-      expect(ExpressiveShapes.sunny(), isA<ShapeBorder>());
-      expect(ExpressiveShapes.softBurst(), isA<ShapeBorder>());
-      expect(ExpressiveShapes.cookie(), isA<ShapeBorder>());
-      expect(ExpressiveShapes.pill(), isA<ShapeBorder>());
+      expect(M3Shapes.pentagon(), isA<ShapeBorder>());
+      expect(M3Shapes.sunny(), isA<ShapeBorder>());
+      expect(M3Shapes.softBurst(), isA<ShapeBorder>());
+      expect(M3Shapes.cookie(), isA<ShapeBorder>());
+      expect(M3Shapes.pill(), isA<ShapeBorder>());
     });
   });
 
-  group('ExpressiveLoadingIndicator Widget Tests', () {
+  group('M3LoadingIndicator Widget Tests', () {
     testWidgets('Renders correctly with default parameters', (WidgetTester tester) async {
       await tester.pumpWidget(
         const MaterialApp(
           home: Scaffold(
-            body: ExpressiveLoadingIndicator(),
+            body: M3LoadingIndicator(),
           ),
         ),
       );
 
       // Verify widget exists
-      expect(find.byType(ExpressiveLoadingIndicator), findsOneWidget);
+      expect(find.byType(M3LoadingIndicator), findsOneWidget);
       // Verify semantics label
       expect(find.bySemanticsLabel('Loading'), findsOneWidget);
     });
@@ -39,7 +39,7 @@ void main() {
       await tester.pumpWidget(
         const MaterialApp(
           home: Scaffold(
-            body: ExpressiveLoadingIndicator(
+            body: M3LoadingIndicator(
               contained: true,
               containerSize: 100.0,
               size: 50.0,
@@ -48,7 +48,7 @@ void main() {
         ),
       );
 
-      expect(find.byType(ExpressiveLoadingIndicator), findsOneWidget);
+      expect(find.byType(M3LoadingIndicator), findsOneWidget);
     });
   });
 

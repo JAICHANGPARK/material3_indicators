@@ -2,15 +2,15 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'shapes.dart';
 
-/// A Material 3 Expressive Loading Indicator.
+/// A Material 3 Loading Indicator.
 ///
 /// It features a shape-morphing indeterminate loading animation,
 /// transitioning smoothly between a series of rounded polygon shapes.
 /// It can be displayed as either uncontained (standalone shape) or
 /// contained (inside a background card).
-class ExpressiveLoadingIndicator extends StatefulWidget {
-  /// Creates a Material 3 Expressive Loading Indicator.
-  const ExpressiveLoadingIndicator({
+class M3LoadingIndicator extends StatefulWidget {
+  /// Creates a Material 3 Loading Indicator.
+  const M3LoadingIndicator({
     super.key,
     this.shapes,
     this.size = 36.0,
@@ -24,7 +24,7 @@ class ExpressiveLoadingIndicator extends StatefulWidget {
   });
 
   /// The list of shapes to cycle through.
-  /// If null, [ExpressiveShapes.defaultCycle] will be used.
+  /// If null, [M3Shapes.defaultCycle] will be used.
   final List<ShapeBorder>? shapes;
 
   /// The size of the active morphing indicator shape.
@@ -54,11 +54,11 @@ class ExpressiveLoadingIndicator extends StatefulWidget {
   final String? semanticsLabel;
 
   @override
-  State<ExpressiveLoadingIndicator> createState() =>
-      _ExpressiveLoadingIndicatorState();
+  State<M3LoadingIndicator> createState() =>
+      _M3LoadingIndicatorState();
 }
 
-class _ExpressiveLoadingIndicatorState extends State<ExpressiveLoadingIndicator>
+class _M3LoadingIndicatorState extends State<M3LoadingIndicator>
     with TickerProviderStateMixin {
   late AnimationController _morphController;
   late AnimationController _rotationController;
@@ -80,7 +80,7 @@ class _ExpressiveLoadingIndicatorState extends State<ExpressiveLoadingIndicator>
   }
 
   @override
-  void didUpdateWidget(covariant ExpressiveLoadingIndicator oldWidget) {
+  void didUpdateWidget(covariant M3LoadingIndicator oldWidget) {
     super.didUpdateWidget(oldWidget);
     // Update morph duration if changed
     final shapesCount = _getShapeList().length;
@@ -103,7 +103,7 @@ class _ExpressiveLoadingIndicatorState extends State<ExpressiveLoadingIndicator>
   }
 
   List<ShapeBorder> _getShapeList() {
-    return widget.shapes ?? ExpressiveShapes.defaultCycle;
+    return widget.shapes ?? M3Shapes.defaultCycle;
   }
 
   /// Calculates the current interpolated shape based on [animationValue].

@@ -11,7 +11,7 @@ class ExampleApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Material 3 Expressive Indicators',
+      title: 'Material 3 Indicators',
       themeMode: ThemeMode.system,
       theme: ThemeData(
         useMaterial3: true,
@@ -46,7 +46,7 @@ class _DashboardScreenState extends State<DashboardScreen>
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 3, vsync: this);
+    _tabController = TabController(length: 4, vsync: this);
   }
 
   @override
@@ -59,11 +59,13 @@ class _DashboardScreenState extends State<DashboardScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('M3 Expressive Indicators'),
+        title: const Text('M3 Indicators Showcase'),
         centerTitle: true,
         bottom: TabBar(
           controller: _tabController,
+          isScrollable: true,
           tabs: const [
+            Tab(icon: Icon(Icons.dashboard), text: 'Overview'),
             Tab(icon: Icon(Icons.blur_circular), text: 'Loading'),
             Tab(icon: Icon(Icons.linear_scale), text: 'Wavy Linear'),
             Tab(icon: Icon(Icons.looks), text: 'Wavy Circular'),
@@ -72,10 +74,11 @@ class _DashboardScreenState extends State<DashboardScreen>
       ),
       body: TabBarView(
         controller: _tabController,
-        children: const [
-          ExpressiveLoadingTab(),
-          WavyLinearTab(),
-          WavyCircularTab(),
+        children: [
+          OverviewTab(tabController: _tabController),
+          const M3LoadingTab(),
+          const WavyLinearTab(),
+          const WavyCircularTab(),
         ],
       ),
     );
@@ -83,16 +86,190 @@ class _DashboardScreenState extends State<DashboardScreen>
 }
 
 // ----------------------------------------------------
-// TAB 1: Expressive Loading (Shape Morphing)
+// TAB 0: Overview Tab (Showcases all 3 indicators)
 // ----------------------------------------------------
-class ExpressiveLoadingTab extends StatefulWidget {
-  const ExpressiveLoadingTab({super.key});
+class OverviewTab extends StatelessWidget {
+  const OverviewTab({super.key, required this.tabController});
+
+  final TabController tabController;
 
   @override
-  State<ExpressiveLoadingTab> createState() => _ExpressiveLoadingTabState();
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
+    return SingleChildScrollView(
+      padding: const EdgeInsets.all(16.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Material 3 Indicator Suite',
+            style: theme.textTheme.headlineSmall?.copyWith(
+              fontWeight: FontWeight.bold,
+              color: theme.colorScheme.primary,
+            ),
+          ),
+          const SizedBox(height: 8.0),
+          Text(
+            'A unified showcase of shape-morphing loaders and polar/sinusoidal wavy progress animations.',
+            style: theme.textTheme.bodyMedium?.copyWith(
+              color: theme.colorScheme.onSurfaceVariant,
+            ),
+          ),
+          const SizedBox(height: 24.0),
+
+          // 1. Loading Indicator Card
+          _buildOverviewCard(
+            context: context,
+            title: 'M3 Loading Indicator',
+            subtitle: 'Spring-driven morphing between rounded polygons',
+            detailsTabIndex: 1,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Column(
+                  children: [
+                    const M3LoadingIndicator(size: 40.0),
+                    const SizedBox(height: 8.0),
+                    Text('Uncontained', style: theme.textTheme.labelMedium),
+                  ],
+                ),
+                Column(
+                  children: [
+                    const M3LoadingIndicator(
+                      contained: true,
+                      size: 36.0,
+                      containerSize: 56.0,
+                    ),
+                    const SizedBox(height: 8.0),
+                    Text('Contained', style: theme.textTheme.labelMedium),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 16.0),
+
+          // 2. Wavy Linear Card
+          _buildOverviewCard(
+            context: context,
+            title: 'Wavy Linear Progress Indicator',
+            subtitle: 'Sinusoidal active track with edge dampening envelopes',
+            detailsTabIndex: 2,
+            child: const Column(
+              children: [
+                WavyLinearProgressIndicator(value: 0.65),
+                SizedBox(height: 16.0),
+                WavyLinearProgressIndicator(value: null), // Indeterminate
+              ],
+            ),
+          ),
+          const SizedBox(height: 16.0),
+
+          // 3. Wavy Circular Card
+          _buildOverviewCard(
+            context: context,
+            title: 'Wavy Circular Progress Indicator',
+            subtitle: 'Sinusoidal polar coordinate wave rings',
+            detailsTabIndex: 3,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Column(
+                  children: [
+                    const WavyCircularProgressIndicator(value: 0.7, size: 56.0),
+                    const SizedBox(height: 8.0),
+                    Text('Determinate (70%)', style: theme.textTheme.labelMedium),
+                  ],
+                ),
+                Column(
+                  children: [
+                    const WavyCircularProgressIndicator(value: null, size: 56.0),
+                    const SizedBox(height: 8.0),
+                    Text('Indeterminate', style: theme.textTheme.labelMedium),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildOverviewCard({
+    required BuildContext context,
+    required String title,
+    required String subtitle,
+    required int detailsTabIndex,
+    required Widget child,
+  }) {
+    final theme = Theme.of(context);
+
+    return Card(
+      clipBehavior: Clip.antiAlias,
+      elevation: 0,
+      shape: RoundedRectangleBorder(
+        side: BorderSide(color: theme.colorScheme.outlineVariant),
+        borderRadius: BorderRadius.circular(12.0),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        title,
+                        style: theme.textTheme.titleMedium?.copyWith(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text(
+                        subtitle,
+                        style: theme.textTheme.bodySmall?.copyWith(
+                          color: theme.colorScheme.onSurfaceVariant,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                IconButton.filledTonal(
+                  icon: const Icon(Icons.arrow_forward),
+                  onPressed: () => tabController.animateTo(detailsTabIndex),
+                  tooltip: 'Go to details',
+                ),
+              ],
+            ),
+            const Divider(height: 24.0),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8.0),
+              child: child,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 }
 
-class _ExpressiveLoadingTabState extends State<ExpressiveLoadingTab> {
+// ----------------------------------------------------
+// TAB 1: M3 Loading (Shape Morphing)
+// ----------------------------------------------------
+class M3LoadingTab extends StatefulWidget {
+  const M3LoadingTab({super.key});
+
+  @override
+  State<M3LoadingTab> createState() => _M3LoadingTabState();
+}
+
+class _M3LoadingTabState extends State<M3LoadingTab> {
   bool _contained = false;
   double _size = 48.0;
   double _containerSize = 72.0;
@@ -108,15 +285,15 @@ class _ExpressiveLoadingTabState extends State<ExpressiveLoadingTab> {
 
   List<ShapeBorder> _getCustomCycle() {
     final List<ShapeBorder> list = [];
-    if (_usePentagon) list.add(ExpressiveShapes.pentagon());
-    if (_useSunny) list.add(ExpressiveShapes.sunny());
-    if (_useSoftBurst) list.add(ExpressiveShapes.softBurst());
-    if (_useCookie) list.add(ExpressiveShapes.cookie());
-    if (_usePill) list.add(ExpressiveShapes.pill());
+    if (_usePentagon) list.add(M3Shapes.pentagon());
+    if (_useSunny) list.add(M3Shapes.sunny());
+    if (_useSoftBurst) list.add(M3Shapes.softBurst());
+    if (_useCookie) list.add(M3Shapes.cookie());
+    if (_usePill) list.add(M3Shapes.pill());
 
     // Fallback if none selected
     if (list.isEmpty) {
-      list.add(ExpressiveShapes.cookie());
+      list.add(M3Shapes.cookie());
     }
     return list;
   }
@@ -138,7 +315,7 @@ class _ExpressiveLoadingTabState extends State<ExpressiveLoadingTab> {
               height: 200,
               width: double.infinity,
               child: Center(
-                child: ExpressiveLoadingIndicator(
+                child: M3LoadingIndicator(
                   key: ValueKey([_contained, _size, _containerSize, _morphMs, _rotateMs, shapes.length]),
                   shapes: shapes,
                   size: _size,
