@@ -1,7 +1,8 @@
 name: material3_indicators
-description: "A new Flutter package project."
+description: High-fidelity Material 3 Expressive loading and progress indicators for Flutter, featuring shape-morphing indeterminate loaders and wavy linear/circular progress bars.
 version: 0.0.1
-homepage:
+repository: https://github.com/JAICHANGPARK/material3_indicators
+issue_tracker: https://github.com/JAICHANGPARK/material3_indicators/issues
 
 environment:
   sdk: ^3.12.2
