@@ -4,6 +4,14 @@ version: 2026.7.12
 repository: https://github.com/JAICHANGPARK/material3_indicators
 issue_tracker: https://github.com/JAICHANGPARK/material3_indicators/issues
 
+screenshots:
+  - description: 'Expressive Loading Indicator with shape-morphing continuous animation.'
+    path: assets/20260712-njyi.png
+  - description: 'Wavy Linear Progress Indicator featuring custom sinusoidal active track.'
+    path: assets/20260712-njzb.png
+  - description: 'Wavy Circular Progress Indicator displaying polar wave progress ring.'
+    path: assets/20260712-njzn.png
+
 environment:
   sdk: ^3.12.2
   flutter: ">=1.17.0"
