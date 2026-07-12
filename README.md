@@ -12,7 +12,7 @@ A Flutter package implementing the latest **Material 3 Expressive** loading and 
 
 | Component | Style | Key Characteristics |
 | :--- | :--- | :--- |
-| **`ExpressiveLoadingIndicator`** | Shape-Morphing Spinner | Continuous spring-driven morphing between rounded polygons (Pentagon, Sunny, Soft Burst, Cookie, Pill). Outlined/Filled, Contained/Uncontained. |
+| **`M3LoadingIndicator`** | Shape-Morphing Spinner | Continuous spring-driven morphing between rounded polygons (Pentagon, Sunny, Soft Burst, Cookie, Pill). Outlined/Filled, Contained/Uncontained. |
 | **`WavyLinearProgressIndicator`** | Sinusoidal Progress Bar | Sinusoidal active bar. Edge envelopes apply smooth transitions so wave ends join flat tracks seamlessly. |
 | **`WavyCircularProgressIndicator`** | Polar Wave Progress Ring | Polar coordinate waves revolving and morphing dynamically. Features adaptive boundary dampening. |
 
@@ -41,12 +41,12 @@ import 'package:material3_indicators/material3_indicators.dart';
 
 ```dart
 // Basic Uncontained Loader
-const ExpressiveLoadingIndicator(
+const M3LoadingIndicator(
   size: 36.0,
 );
 
 // Contained Loader (inside a card background)
-const ExpressiveLoadingIndicator(
+const M3LoadingIndicator(
   contained: true,
   size: 40.0,
   containerSize: 72.0,
@@ -54,10 +54,10 @@ const ExpressiveLoadingIndicator(
 );
 
 // Customizing Shapes list
-ExpressiveLoadingIndicator(
+M3LoadingIndicator(
   shapes: [
-    ExpressiveShapes.pentagon(),
-    ExpressiveShapes.cookie(),
+    M3Shapes.pentagon(),
+    M3Shapes.cookie(),
   ],
 );
 ```
@@ -102,7 +102,7 @@ const WavyCircularProgressIndicator(
 ## Additional information
 
 ### Custom Shapes
-You can design custom polygon sequences using the [StarBorder] helpers provided by `ExpressiveShapes`, or feed any list of custom `ShapeBorder` geometries directly into `ExpressiveLoadingIndicator(shapes: [...])`. 
+You can design custom polygon sequences using the [StarBorder] helpers provided by `M3Shapes`, or feed any list of custom `ShapeBorder` geometries directly into `M3LoadingIndicator(shapes: [...])`. 
 
 ### Boundary Dampening (Edge Envelope)
 To prevent waves from making sharp jumps at progress boundaries, both wavy indicators employ a mathematical envelope. This automatically flattens the wave amplitude near the ends of the active track to blend smoothly with standard flat rounded tracks.

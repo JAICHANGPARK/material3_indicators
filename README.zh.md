@@ -12,7 +12,7 @@
 
 | 组件 | 样式 | 主要特点 |
 | :--- | :--- | :--- |
-| **`ExpressiveLoadingIndicator`** | 形状渐变加载器 | 采用基于弹簧物理的平滑渐变算法，在多种圆角多边形（五边形、太阳形、柔和星形、曲奇饼形、药丸形）之间不断切换并持续旋转。支持描边/填充、以及带背景卡片（Contained）等配置选项。 |
+| **`M3LoadingIndicator`** | 形状渐变加载器 | 采用基于弹簧物理的平滑渐变算法，在多种圆角多边形（五边形、太阳形、柔和星形、曲奇饼形、药丸形）之间不断切换并持续旋转。支持描边/填充、以及带背景卡片（Contained）等配置选项。 |
 | **`WavyLinearProgressIndicator`** | 波浪状线性进度条 | 进度条以正弦波（Sine wave）的形式波动推进。波浪的两端采用了边缘包络线（Edge Envelope）衰减算法，确保波浪端点与平直的背景轨道完美平滑过渡。 |
 | **`WavyCircularProgressIndicator`** | 极坐标波浪形进度环 | 采用极坐标系统，使波浪沿圆形轨迹起伏旋转。同样具备自适应边缘包络线阻尼，使曲线两端平滑融入圆弧轨道。 |
 
@@ -41,12 +41,12 @@ import 'package:material3_indicators/material3_indicators.dart';
 
 ```dart
 // 基础型（无背景卡片）
-const ExpressiveLoadingIndicator(
+const M3LoadingIndicator(
   size: 36.0,
 );
 
 // 容器型（带背景卡片）
-const ExpressiveLoadingIndicator(
+const M3LoadingIndicator(
   contained: true,
   size: 40.0,
   containerSize: 72.0,
@@ -54,10 +54,10 @@ const ExpressiveLoadingIndicator(
 );
 
 // 自定义渐变形状队列
-ExpressiveLoadingIndicator(
+M3LoadingIndicator(
   shapes: [
-    ExpressiveShapes.pentagon(),
-    ExpressiveShapes.cookie(),
+    M3Shapes.pentagon(),
+    M3Shapes.cookie(),
   ],
 );
 ```
@@ -102,7 +102,7 @@ const WavyCircularProgressIndicator(
 ## 补充信息
 
 ### 自定义形状
-您可以利用 `ExpressiveShapes` 类提供的各种 [StarBorder] 生成辅助函数来自定义您的渐变形状序列，也可以将任何自定义的 `ShapeBorder` 列表直接传入 `ExpressiveLoadingIndicator(shapes: [...])` 中。
+您可以利用 `M3Shapes` 类提供的各种 [StarBorder] 生成辅助函数来自定义您的渐变形状序列，也可以将任何自定义的 `ShapeBorder` 列表直接传入 `M3LoadingIndicator(shapes: [...])` 中。
 
 ### 边缘衰减算法（包络线）
 为了防止波浪形在进度条边界（起点或终点）处突然折断，两种波浪指示器内部都集成了数学包络线算法。该算法会在接近末端的位置将波幅自动平滑衰减至零，从而与经典的圆角轨道端点（Round Cap）完美无缝融合。

@@ -12,7 +12,7 @@
 
 | コンポーネント | スタイル | 主な特徴 |
 | :--- | :--- | :--- |
-| **`ExpressiveLoadingIndicator`** | 形状モーフィングスピナー | 角丸多角形（五角形、太陽の形、ソフトバースト、クッキーの形、カプセル型）の間をスプリング物理演算に基づいて滑らかにモーフィングしながら回転し続けます。枠線/塗りつぶし、および背景カード（Contained）の有無をオプションで設定できます。 |
+| **`M3LoadingIndicator`** | 形状モーフィングスピナー | 角丸多角形（五角形、太陽の形、ソフトバースト、クッキー의形、カプセル型）の間をスプリング物理演算に基づいて滑らかにモーフィングしながら回転し続けます。枠線/塗りつぶし、および背景カード（Contained）の有無をオプションで設定できます。 |
 | **`WavyLinearProgressIndicator`** | 波状線形プログレスバー | 進行状況バーがサイン波（正弦波）を描きながら波打つように進みます。波の両端にエッジエンベロープ（減衰）処理を施し、進行中の波の端点がフラットな背景トラックと違和感なく滑らかに接続されるように設計されています。 |
 | **`WavyCircularProgressIndicator`** | 極座標波状プログレスリング | 極座標系を応用し、円形の軌道に沿って波を打ちながら回転します。同様に波の両端が減衰し、円形トラックと自然に一致します。 |
 
@@ -41,12 +41,12 @@ import 'package:material3_indicators/material3_indicators.dart';
 
 ```dart
 // 基本形 (背景カードなし)
-const ExpressiveLoadingIndicator(
+const M3LoadingIndicator(
   size: 36.0,
 );
 
 // コンテナ型 (背景カード付き)
-const ExpressiveLoadingIndicator(
+const M3LoadingIndicator(
   contained: true,
   size: 40.0,
   containerSize: 72.0,
@@ -54,10 +54,10 @@ const ExpressiveLoadingIndicator(
 );
 
 // 遷移する形状のカスタムリスト
-ExpressiveLoadingIndicator(
+M3LoadingIndicator(
   shapes: [
-    ExpressiveShapes.pentagon(),
-    ExpressiveShapes.cookie(),
+    M3Shapes.pentagon(),
+    M3Shapes.cookie(),
   ],
 );
 ```
@@ -102,7 +102,7 @@ const WavyCircularProgressIndicator(
 ## 補足情報
 
 ### カスタムシェイプ
-`ExpressiveShapes` クラスで提供されている多様な [StarBorder] ヘルパー関数を組み合わせることで、好みの形状遷移シークエンスを設計できます。また、一般的なカスタム `ShapeBorder` のリストを直接 `ExpressiveLoadingIndicator(shapes: [...])` に渡すことも可能です。
+`M3Shapes` クラスで提供されている多様な [StarBorder] ヘルパー関数を組み合わせることで、好みの形状遷移シークエンスを設計できます。また、一般的なカスタム `ShapeBorder` のリストを直接 `M3LoadingIndicator(shapes: [...])` に渡すことも可能です。
 
 ### 境界部分の減衰処理（エッジエンベロープ）
 進行状況バーの境界（開始および終了地点）で波形が急激に途切れるのを防ぐため、両波状インジケーターの内部には数学的なエンベロープ（包絡線）減衰が実装されています。これにより、端点付近では自動的に波の振幅がゼロになり、標準的なトラックの丸み（Round Cap）とシームレスに結合します。

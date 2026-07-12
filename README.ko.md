@@ -12,7 +12,7 @@
 
 | 컴포넌트 | 스타일 | 주요 특징 |
 | :--- | :--- | :--- |
-| **`ExpressiveLoadingIndicator`** | 도형 모핑 스피너 | 둥근 다각형(오각형, 태양 모양, 소프트 버스트, 쿠키 모양, 알약 모양) 간을 스프링 물리 기반으로 부드럽게 모핑하며 회전합니다. 테두리선/채우기, 컨테이너 카드 내장(Contained) 여부를 옵션으로 조절할 수 있습니다. |
+| **`M3LoadingIndicator`** | 도형 모핑 스피너 | 둥근 다각형(오각형, 태양 모양, 소프트 버스트, 쿠키 모양, 알약 모양) 간을 스프링 물리 기반으로 부드럽게 모핑하며 회전합니다. 테두리선/채우기, 컨테이너 카드 내장(Contained) 여부를 옵션으로 조절할 수 있습니다. |
 | **`WavyLinearProgressIndicator`** | 물결 모양 선형 프로그레스 바 | 진행 바가 사인파(Sine wave) 형태로 흔들리며 전진합니다. 물결의 양 끝단에 경계선 감쇠(Edge Envelope) 공식을 적용하여, 활성 영역이 평평한 배경 트랙과 자연스럽게 만나도록 마감했습니다. |
 | **`WavyCircularProgressIndicator`** | 극좌표 물결형 프로그레스 링 | 극좌표계를 응용하여 원형 궤적 위에서 파동을 치며 회전합니다. 마찬가지로 곡선의 끝부분이 부드럽게 감쇠하여 원형 트랙에 자연스럽게 일치합니다. |
 
@@ -41,12 +41,12 @@ import 'package:material3_indicators/material3_indicators.dart';
 
 ```dart
 // 기본형 (배경 박스 없음)
-const ExpressiveLoadingIndicator(
+const M3LoadingIndicator(
   size: 36.0,
 );
 
 // 배경 박스가 있는 형태 (Contained Mode)
-const ExpressiveLoadingIndicator(
+const M3LoadingIndicator(
   contained: true,
   size: 40.0,
   containerSize: 72.0,
@@ -54,10 +54,10 @@ const ExpressiveLoadingIndicator(
 );
 
 // 순환될 커스텀 도형 목록 지정
-ExpressiveLoadingIndicator(
+M3LoadingIndicator(
   shapes: [
-    ExpressiveShapes.pentagon(),
-    ExpressiveShapes.cookie(),
+    M3Shapes.pentagon(),
+    M3Shapes.cookie(),
   ],
 );
 ```
@@ -102,7 +102,7 @@ const WavyCircularProgressIndicator(
 ## 추가 정보
 
 ### 커스텀 도형 (Custom Shapes)
-`ExpressiveShapes` 클래스에서 제공하는 다양한 [StarBorder] 생성 헬퍼 함수를 조합하여 원하시는 순환 다각형 시퀀스를 설계할 수 있으며, 일반적인 custom `ShapeBorder` 리스트를 `ExpressiveLoadingIndicator(shapes: [...])`에 직접 주입할 수도 있습니다.
+`M3Shapes` 클래스에서 제공하는 다양한 [StarBorder] 생성 헬퍼 함수를 조합하여 원하시는 순환 다각형 시퀀스를 설계할 수 있으며, 일반적인 custom `ShapeBorder` 리스트를 `M3LoadingIndicator(shapes: [...])`에 직접 주입할 수도 있습니다.
 
 ### 경계선 감쇠 수학 공식 (Edge Envelope)
 물결의 파동이 진행 바의 경계선(시작 및 끝 지점)에서 급격하게 끊기지 않도록 양단에서 진폭을 점진적으로 0으로 수렴시키는 Envelope 보간을 구현했습니다. 이를 통해 파동이 트랙의 둥근 마감캡(Round Cap)과 완벽하게 수평을 이루며 매끄럽게 흐릅니다.
